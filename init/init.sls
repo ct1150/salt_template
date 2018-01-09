@@ -1,4 +1,5 @@
-{% if not grains['init'] or grains['init'] == 0 %}
+{% if grains['osinit'] and grains['osinit']==1 %}
+{% else %}
 include:
   - init.dns
   - init.yum
@@ -7,7 +8,7 @@ include:
   - init.ssh
   - init.firewall
   - init.sysctl
-init:
+osinit:
   grains.present:
     - value: 1
 {% endif %}

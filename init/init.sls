@@ -1,4 +1,4 @@
-{% if grains['osinit'] and grains['osinit']==1 %}
+{% if grains.get('osinit') and grains['osinit']==1 %}
 {% else %}
 include:
   - init.dns
